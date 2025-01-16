@@ -1,0 +1,32 @@
+.en-uk-addon__popup {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  
+  word-wrap: break-word;
+
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  background-color: #cedff2;
+  color: #000;
+
+  max-width: 300px;
+
+  position: fixed;
+  z-index: 9999;
+}
+
+.en-uk-addon__popup::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #cedff2;
+}
