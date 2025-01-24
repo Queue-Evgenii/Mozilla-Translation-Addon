@@ -30,3 +30,11 @@
   border-right: 10px solid transparent;
   border-bottom: 10px solid #cedff2;
 }
+
+.en-uk-addon__popup:has(select)::before {
+  display: none;
+}
+
+.en-uk-addon__popup select {
+  width: 60px;
+}

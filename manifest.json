@@ -1,8 +1,7 @@
 {
-  "id": 0,
   "manifest_version": 3,
   "name": "Word Translator",
-  "version": "0.1",
+  "version": "1.0",
   "description": "Word translator on button press",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["<all_urls>"],
@@ -14,9 +13,9 @@
     }
   ],
   "browser_specific_settings": {
-  "gecko": {
-    "id": "genadolgii228@gmail.com",
-    "strict_min_version": "109.0"
+    "gecko": {
+      "id": "genadolgii228@gmail.com",
+      "strict_min_version": "109.0"
+    }
   }
-}
 }
