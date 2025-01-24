@@ -3,7 +3,7 @@ const translateWord = (word) => {
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(res => res.json())
-      .then(res => resolve(res[0][0][0]))
+      .then(res => resolve(res[0]))
       .catch(err => reject(err));
   });
 }
@@ -13,10 +13,12 @@ const showTranslationPopup = (selection, originalWord, translation) => {
 
   const existingPopup = document.querySelector(".en-uk-addon__popup");
   if (existingPopup) existingPopup.remove();
+  
+  const formatText = (text) => text.replace(/(\r\n|\n|\r)/g, "<br>");
 
   const popup = document.createElement("div");
   popup.className = "en-uk-addon__popup";
-  popup.innerHTML = `<strong>${originalWord}:</strong></br>${translation}`;
+  popup.innerHTML = `<strong>${formatText(originalWord)}:</strong></br>${formatText(translation)}`;
   document.body.appendChild(popup);
 
   const left = rect.left + rect.width / 2 - popup.offsetWidth / 2;
@@ -54,7 +56,7 @@ document.addEventListener("keydown", async (event) => {
       let translation = "";
       translateWord(selectedText)
         .then(data => {
-          translation = data
+          translation = data.map(item => item[0]).join('');
         })
         .catch(err => {
           translation = "Помилка перекладу! :(";
